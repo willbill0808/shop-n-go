@@ -1,3 +1,9 @@
-[gd_scene load_steps=0 format=3 uid="uid://diglqykbg4k0b"]
+[gd_scene load_steps=2 format=3 uid="uid://diglqykbg4k0b"]
+
+[ext_resource type="PackedScene" uid="uid://be2kkcb4vvsvp" path="res://player.tscn" id="1_41xbd"]
 
 [node name="Karakter" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_41xbd")]
+motion_mode = 1
+movement_speed = 150.0
