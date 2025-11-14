@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://be6rfmveip1pi"]
+
+[ext_resource type="Texture2D" uid="uid://d0nlve3cljyxr" path="res://temp assets/winter.png" id="1_fkhsf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u3aus"]
+size = Vector2(160, 156)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(294, 304)
+texture = ExtResource("1_fkhsf")
+region_enabled = true
+region_rect = Rect2(256, 1080, 176, 184)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(295, 306)
+shape = SubResource("RectangleShape2D_u3aus")
