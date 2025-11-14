@@ -1,16 +1,21 @@
 extends StaticBody2D
 
-var placeList = ["spawn_node1", "spawn_node2", "spawn_node3", "spawn_node4", "spawn_node5", "spawn_node6"]
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var ranger = len(placeList) - 1
-	var nodeName = placeList[randi_range(0, ranger)]
-	var spawnpos = get_parent().find_child(nodeName).position
-	 
-	position = spawnpos
-	
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+	repos() #kjører randomizer repositioning på starten av projectet
+
+func repos():
+	var placeList = get_tree().get_nodes_in_group("spawn_nodes")
+	var placeName = []
+	for o in placeList:
+		placeName.append(o.name)
+	var nodeName = placeName[randi_range(0, len(placeList) - 1 )] #får et tilfeldig tall som skal bli brukt når den velger position
+	var spawnpos = get_parent().find_child(nodeName).position #finner noden valgt
+	
+	position = spawnpos #setter den nye positionen
+
+
 func _process(delta: float) -> void:
-	pass
+	if Input.is_action_just_pressed("action1"): #når man kaller "action1" (det gjør man via å trykke "e" i dette projektet) så kjører koden i if indenten
+		repos()
