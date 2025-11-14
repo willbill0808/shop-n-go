@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export  var movement_speed : float =500
+@export  var movement_speed : float = 500
 var character_direction : Vector2
 
 func _physics_process(delta: float) -> void:
@@ -19,5 +19,5 @@ func _physics_process(delta: float) -> void:
 		velocity = velocity.move_toward(Vector2.ZERO, movement_speed)
 		if %sprite.animation != "Idle": %sprite.animation = "Idle"
 		
-		move_and_slide()
+	move_and_slide()
 		
