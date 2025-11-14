@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bu835lab1nwkl"]
+
+[ext_resource type="Script" uid="uid://wu272agi27f3" path="res://temp_item.gd" id="1_q3x1p"]
+[ext_resource type="Texture2D" uid="uid://dylrocadc6dhb" path="res://temp assets/World of Solaria Blacksmith Update 02 DEMO/World of Solaria Blacksmith New Style DEMO.png" id="2_pvdh7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vixty"]
+radius = 7.0
+height = 22.0
+
+[node name="StaticBody2D" type="StaticBody2D"]
+script = ExtResource("1_q3x1p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_pvdh7")
+region_enabled = true
+region_rect = Rect2(144, 130, 16, 22)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_vixty")
