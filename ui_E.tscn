@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://bietw8vwdgwr5"]
+
+[ext_resource type="Texture2D" uid="uid://n2swim0y5k3g" path="res://temp assets/kenney_input-prompts_1.4/Keyboard & Mouse/keyboard-&-mouse_sheet_default.png" id="1_iifa7"]
+[ext_resource type="Script" uid="uid://neyriitcal3n" path="res://ui_e.gd" id="1_pyav8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pyav8"]
+radius = 20.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pyav8"]
+atlas = ExtResource("1_iifa7")
+region = Rect2(640, 640, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ne83j"]
+atlas = ExtResource("1_iifa7")
+region = Rect2(704, 640, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p8703"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pyav8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ne83j")
+}],
+"loop": true,
+"name": &"default_E",
+"speed": 5.0
+}]
+
+[node name="area_Es" type="Area2D"]
+script = ExtResource("1_pyav8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_pyav8")
+
+[node name="presser2" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -14.999999)
+scale = Vector2(0.16, 0.16)
+sprite_frames = SubResource("SpriteFrames_p8703")
+animation = &"default_E"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

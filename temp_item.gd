@@ -1,5 +1,6 @@
 extends StaticBody2D
 
+var entered = false
 
 func _ready() -> void:
 
@@ -18,4 +19,5 @@ func repos():
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("action1"): #når man kaller "action1" (det gjør man via å trykke "e" i dette projektet) så kjører koden i if indenten
-		repos()
+		if entered:
+			repos()

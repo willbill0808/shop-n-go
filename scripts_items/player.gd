@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+var entered = false
+
 const Bullet = preload("res://scenes_items/bullet.tscn")
 
 const SPEED = 300.0
@@ -14,7 +16,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		
-	var direction := Input.get_axis("ui_left", "ui_right")
+	var direction := Input.get_axis("LEFT", "RIGHT")
 	if direction:
 		if current_state == "SPEED_BOOST":
 			velocity.x = direction * new_Speed
@@ -25,6 +27,9 @@ func _physics_process(delta: float) -> void:
 	
 	if Global.snowball < 16 and current_state == "SNOWBALL" and Input.is_action_just_pressed("shoot"):
 		shoot()
+		
+	if Input.is_action_just_pressed("action1"):
+		action()
 		
 	move_and_slide()   
 	
@@ -47,10 +52,6 @@ func action():
 			print("nothing happening")
 			
 			
-func _unhandled_input(event):
-	if event is InputEventKey:
-		if event.pressed and event.keycode == KEY_E:
-			action()
 
 func shoot():
 	var marker = $Marker2D
