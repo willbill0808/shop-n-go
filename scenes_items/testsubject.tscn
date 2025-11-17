@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6qd80bcg20ch"]
+
+[ext_resource type="Script" uid="uid://d2o47dxj7jd1e" path="res://scripts_items/testsubject.gd" id="1_fegme"]
+[ext_resource type="Texture2D" uid="uid://1346khl1pe64" path="res://icon.svg" id="1_qcxjc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w2bfc"]
+radius = 108.67382
+
+[node name="testsubject" type="Area2D" groups=["shootable"]]
+collision_layer = 2
+script = ExtResource("1_fegme")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(903, 373)
+texture = ExtResource("1_qcxjc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["shootable"]]
+position = Vector2(899, 375)
+shape = SubResource("CircleShape2D_w2bfc")
