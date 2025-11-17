@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 const Bullet = preload("res://scenes_items/bullet.tscn")
+const Ice = preload("res://scenes_items/slippyice.tscn")
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -25,6 +26,8 @@ func _physics_process(delta: float) -> void:
 	
 	if Global.snowball < 16 and current_state == "SNOWBALL" and Input.is_action_just_pressed("shoot"):
 		shoot()
+	if current_state == "ICE" and Input.is_action_just_pressed("shoot"):
+		ice()
 		
 	move_and_slide()   
 	
@@ -58,3 +61,9 @@ func shoot():
 	b.global_position = marker.global_position
 	get_tree().current_scene.add_child(b)
 	Global.snowball += 1
+	
+func ice():
+	var marker = $Marker2D
+	var ice = Ice.instantiate()
+	ice.global_position = marker.global_position
+	get_tree().current_scene.add_child(ice)
