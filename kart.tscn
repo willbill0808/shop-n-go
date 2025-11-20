@@ -581,4 +581,3 @@ position = Vector2(-84, 0)
 [node name="Player" parent="." instance=ExtResource("5_37pdu")]
 position = Vector2(294, 191)
 motion_mode = 1
-movement_speed = 150.0
