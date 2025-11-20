@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dbtb6vs6fssph"]
 
-[ext_resource type="Texture2D" uid="uid://71uipvpoo5es" path="res://icon.svg" id="1_otv87"]
-[ext_resource type="Script" uid="uid://c4dq2imp0qkti" path="res://scenes_items/slippyice.gd" id="1_xnywe"]
+[ext_resource type="Texture2D" uid="uid://1346khl1pe64" path="res://icon.svg" id="1_otv87"]
+[ext_resource type="Script" uid="uid://c4dq2imp0qkti" path="res://scripts_items/slippyice.gd" id="1_xnywe"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xnywe"]
 radius = 88.20431
