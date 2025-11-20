@@ -10,6 +10,7 @@
 
 [node name="player" parent="." instance=ExtResource("1_xkpxw")]
 position = Vector2(11, 64)
+collision_layer = 2
 
 [node name="Bullet" parent="." instance=ExtResource("3_nnf3m")]
 position = Vector2(11, 64)

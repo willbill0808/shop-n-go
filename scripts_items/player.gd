@@ -1,9 +1,7 @@
 extends CharacterBody2D
 
-var entered = false
-
 const Bullet = preload("res://scenes_items/bullet.tscn")
-const Ice = preload("res://scenes_items/slippyice.tscn")
+const Ice = preload("res://scenes_items/ice_object.tscn")
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -17,7 +15,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		
-	var direction := Input.get_axis("LEFT", "RIGHT")
+	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
 		if current_state == "SPEED_BOOST":
 			velocity.x = direction * new_Speed
@@ -28,12 +26,24 @@ func _physics_process(delta: float) -> void:
 	
 	if Global.snowball < 16 and current_state == "SNOWBALL" and Input.is_action_just_pressed("shoot"):
 		shoot()
-	if current_state == "ICE" and Input.is_action_just_pressed("shoot"):
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+	elif current_state == "ICE" and Input.is_action_just_pressed("shoot"):
 		ice()
 		
-	if Input.is_action_just_pressed("action1"):
+=======
+	if current_state == "ICE" and Input.is_action_just_pressed("shoot_1"):
+		ice()
+		
+=======
+	if current_state == "ICE" and Input.is_action_just_pressed("shoot_1"):
+		ice()
+		
+>>>>>>> Stashed changes
+	if Input.is_action_just_pressed("action1_1"):
 		action()
 		
+>>>>>>> Stashed changes
 	move_and_slide()   
 	
 	
@@ -55,6 +65,10 @@ func action():
 			print("nothing happening")
 			
 			
+func _unhandled_input(event):
+	if event is InputEventKey:
+		if event.pressed and event.keycode == KEY_E:
+			action()
 
 func shoot():
 	var marker = $Marker2D
@@ -62,9 +76,9 @@ func shoot():
 	b.global_position = marker.global_position
 	get_tree().current_scene.add_child(b)
 	Global.snowball += 1
-	
+
 func ice():
 	var marker = $Marker2D
-	var ice = Ice.instantiate()
-	ice.global_position = marker.global_position
-	get_tree().current_scene.add_child(ice)
+	var b = Ice.instantiate()
+	b.global_position = marker.global_position
+	get_tree().current_scene.add_child(b)
