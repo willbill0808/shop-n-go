@@ -80,3 +80,6 @@ func ice():
 	var b = Ice.instantiate()
 	b.global_position = marker.global_position
 	get_tree().current_scene.add_child(b)
+
+
+		
