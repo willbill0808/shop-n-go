@@ -8,6 +8,8 @@ func _physics_process(delta: float) -> void:
 	character_direction.y = Input.get_axis("UP_1", "DOWN_1")
 	character_direction = character_direction.normalized()
 	
+	#hei
+	
 	#flip
 	if character_direction.x > 0: %sprite.flip_h = false
 	elif character_direction.x < 0: %sprite.flip_h = true
