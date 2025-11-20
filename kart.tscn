@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://vkdwbvdm1b5j" path="res://spawn_nodes.tscn" id="3_fhxd7"]
 [ext_resource type="PackedScene" uid="uid://bu835lab1nwkl" path="res://temp_item.tscn" id="4_6vfav"]
 [ext_resource type="PackedScene" uid="uid://be2kkcb4vvsvp" path="res://player.tscn" id="5_37pdu"]
-[ext_resource type="PackedScene" uid="uid://c1wafjoevxapj" path="res://scenes_items/player_2.tscn" id="6_bncll"]
+[ext_resource type="PackedScene" uid="uid://cnpylgyclv3oa" path="res://scenes_items/player_2.tscn" id="6_bncll"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o4efj"]
 texture = ExtResource("1_5y1ng")
@@ -556,25 +556,13 @@ tile_set = SubResource("TileSet_6vfav")
 position = Vector2(200, 216)
 
 [node name="spawn_node2" parent="." groups=["spawn_nodes"] instance=ExtResource("3_fhxd7")]
-position = Vector2(612, 314)
+position = Vector2(1031, 442)
 
 [node name="spawn_node3" parent="." groups=["spawn_nodes"] instance=ExtResource("3_fhxd7")]
 position = Vector2(1009, 223)
 
 [node name="spawn_node4" parent="." groups=["spawn_nodes"] instance=ExtResource("3_fhxd7")]
 position = Vector2(196, 443)
-
-[node name="spawn_node5" parent="." groups=["spawn_nodes"] instance=ExtResource("3_fhxd7")]
-position = Vector2(590, 523)
-
-[node name="spawn_node6" parent="." groups=["spawn_nodes"] instance=ExtResource("3_fhxd7")]
-position = Vector2(958, 476)
-
-[node name="spawn_node7" parent="." groups=["spawn_nodes"] instance=ExtResource("3_fhxd7")]
-position = Vector2(386, 415)
-
-[node name="spawn_node8" parent="." groups=["spawn_nodes"] instance=ExtResource("3_fhxd7")]
-position = Vector2(887, 421)
 
 [node name="temp_item" parent="." instance=ExtResource("4_6vfav")]
 position = Vector2(-84, 0)
