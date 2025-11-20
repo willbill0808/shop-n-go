@@ -27,6 +27,7 @@ func _physics_process(delta: float) -> void:
 	if Global.snowball < 16 and current_state == "SNOWBALL" and Input.is_action_just_pressed("shoot"):
 		shoot()
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	elif current_state == "ICE" and Input.is_action_just_pressed("shoot"):
 		ice()
 		
@@ -34,6 +35,11 @@ func _physics_process(delta: float) -> void:
 	if current_state == "ICE" and Input.is_action_just_pressed("shoot_1"):
 		ice()
 		
+=======
+	if current_state == "ICE" and Input.is_action_just_pressed("shoot_1"):
+		ice()
+		
+>>>>>>> Stashed changes
 	if Input.is_action_just_pressed("action1_1"):
 		action()
 		
