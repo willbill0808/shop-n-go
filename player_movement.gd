@@ -81,5 +81,7 @@ func _physics_process(delta):
 
 	# Ice gliding
 	velocity *= (1.0 - ice_friction)
+	
+	
 
 	move_and_slide()
