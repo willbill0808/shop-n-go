@@ -4,8 +4,8 @@ extends CharacterBody2D
 var character_direction : Vector2
 
 func _physics_process(delta: float) -> void:
-	character_direction.x = Input.get_axis("LEFT", "RIGHT")
-	character_direction.y = Input.get_axis("UP", "DOWN")
+	character_direction.x = Input.get_axis("LEFT_1", "RIGHT_1")
+	character_direction.y = Input.get_axis("UP_1", "DOWN_1")
 	character_direction = character_direction.normalized()
 	
 	#flip
