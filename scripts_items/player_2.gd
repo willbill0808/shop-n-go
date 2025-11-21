@@ -8,6 +8,9 @@ var action_states = { "SPEED_BOOST": 0, "ICE": 1, "SNOWBALL": 2, "NONE": 3 }
 
 var current_state = "NONE"
 
+@export var boost_multiplier := 2.5
+
+
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
@@ -37,15 +40,20 @@ func _physics_process(delta):
 			# hard_turn_stop = 0.95 → beholder kun 5% av farten
 		# ---------------------------------------------------
 
-		var target = input_dir * max_speed
-		velocity = velocity.move_toward(target, accel * delta)
+		if current_state == "SPEED_BOOST":
+			var boosted_speed = max_speed * boost_multiplier
+			var target = input_dir * boosted_speed
+			velocity = velocity.move_toward(target, accel * delta * boost_multiplier)
+		else:
+			var target = input_dir * max_speed
+			velocity = velocity.move_toward(target, accel * delta)
 
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, brake_force * delta)
 
 	velocity *= (1.0 - ice_friction)
 	
-	if Global.snowball < 16 and current_state == "SNOWBALL" and Input.is_action_just_pressed("shoot"):
+	if Global.snowball_1 < 16 and current_state == "SNOWBALL" and Input.is_action_just_pressed("shoot"):
 		shoot()
 	elif current_state == "ICE" and Input.is_action_just_pressed("shoot"):
 		ice()
@@ -89,7 +97,7 @@ func shoot():
 	var b = Bullet.instantiate()
 	b.global_position = marker.global_position
 	get_tree().current_scene.add_child(b)
-	Global.snowball += 1
+	Global.snowball_1 += 1
 
 func ice():
 	var marker = $Marker2D
