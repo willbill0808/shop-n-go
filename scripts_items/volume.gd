@@ -1,6 +1,6 @@
 extends Control
 
-
+signal volume_changed
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -14,3 +14,8 @@ func _process(delta: float) -> void:
 func _on_h_slider_drag_ended(value_changed: bool) -> void:
 	Global.volume = $MarginContainer/VBoxContainer/HSlider.value
 	print(Global.volume)
+	volume_changed.emit()
+
+
+func _on_back_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes_items/options.tscn")
