@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://hme320iolk5t"]
 
-[ext_resource type="Script" uid="uid://baq32m5mek34q" path="res://scripts_items/player_2.gd" id="1_m4gc7"]
+[ext_resource type="Script" path="res://scripts_items/player_2.gd" id="1_m4gc7"]
 [ext_resource type="Texture2D" uid="uid://bg0ec27ks1nw0" path="res://icon (copy).svg" id="1_ogsdd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_511f4"]
@@ -14,5 +14,3 @@ texture = ExtResource("1_ogsdd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_511f4")
-
-[node name="Marker2D" type="Marker2D" parent="."]
