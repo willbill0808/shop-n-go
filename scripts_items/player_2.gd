@@ -24,8 +24,8 @@ const JUMP_VELOCITY = -400.0
 
 func _physics_process(delta):
 	var input_dir := Vector2(
-		Input.get_action_strength("RIGHT_1") - Input.get_action_strength("LEFT_1"),
-		Input.get_action_strength("DOWN_1") - Input.get_action_strength("UP_1")
+		Input.get_action_strength("RIGHT_2") - Input.get_action_strength("LEFT_2"),
+		Input.get_action_strength("DOWN_2") - Input.get_action_strength("UP_2")
 	).normalized()
 
 	if input_dir != Vector2.ZERO:
