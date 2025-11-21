@@ -573,40 +573,36 @@ position = Vector2(196, 443)
 position = Vector2(-84, 0)
 
 [node name="Player1" parent="World" instance=ExtResource("5_37pdu")]
-position = Vector2(294, 191)
+position = Vector2(1053, 212)
 motion_mode = 1
 
 [node name="Player2" parent="World" instance=ExtResource("6_bncll")]
-position = Vector2(863, 410)
+position = Vector2(1023, 446)
 
-[node name="UI" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="UI" type="HBoxContainer" parent="."]
+offset_right = 1028.0
+offset_bottom = 512.0
 
 [node name="SubViewportContainer_Left" type="SubViewportContainer" parent="UI"]
-layout_mode = 0
-offset_left = -1007.0
-offset_top = 167.0
-offset_right = -495.0
-offset_bottom = 679.0
+self_modulate = Color(0.7411765, 1, 1, 1)
+layout_mode = 2
+stretch = true
 metadata/_edit_use_anchors_ = true
 
 [node name="SubViewport_Left" type="SubViewport" parent="UI/SubViewportContainer_Left"]
 disable_3d = true
 handle_input_locally = false
+size = Vector2i(2, 512)
 render_target_update_mode = 4
 
 [node name="SubViewportContainer_Right" type="SubViewportContainer" parent="UI"]
-layout_mode = 0
-offset_left = -1216.0
-offset_top = 135.0
-offset_right = -704.0
-offset_bottom = 647.0
+modulate = Color(1, 0.80784315, 1, 1)
+layout_mode = 2
+stretch = true
 metadata/_edit_use_anchors_ = true
 
 [node name="SubViewport_Right" type="SubViewport" parent="UI/SubViewportContainer_Right"]
 disable_3d = true
 handle_input_locally = false
+size = Vector2i(2, 512)
 render_target_update_mode = 4
