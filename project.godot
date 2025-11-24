@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="shop n go"
-run/main_scene="uid://cbgokq5ig0525"
+run/main_scene="uid://b3oe6mao7byq3"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
