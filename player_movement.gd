@@ -48,8 +48,8 @@ func _physics_process(delta):
 	if mode == "NORMAL":
 
 		var dir := Vector2(
-			Input.get_axis("LEFT_1", "RIGHT_1"),
-			Input.get_axis("UP_1", "DOWN_1")
+			Input.get_axis("LEFT_2", "RIGHT_2"),
+			Input.get_axis("UP_2", "DOWN_2")
 		).normalized()
 
 		# Flip sprite
@@ -76,8 +76,8 @@ func _physics_process(delta):
 	# ===============================================================
 
 	var input_dir := Vector2(
-		Input.get_axis("LEFT_1", "RIGHT_1"),
-		Input.get_axis("UP_1", "DOWN_1")
+		Input.get_axis("LEFT_2", "RIGHT_2"),
+		Input.get_axis("UP_2", "DOWN_2")
 	).normalized()
 
 	if input_dir != Vector2.ZERO:
