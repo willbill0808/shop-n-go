@@ -4,13 +4,28 @@ var entered = false
 var spawn_nodes = []
 var node_modes = {}
 var taken_nodes = []
+
 var skoyter = ["grip", "speed", "max_speed", "snowball", "speed_boost", "ice", "crazy_grip", "crazy_speed"]
+
+@onready var sprite = $Sprite2D
+
+var mode_sprites = {
+	"grip": preload("res://icon (copy).svg"),
+	"speed": preload("res://icon.svg"),
+	"max_speed": preload("res://icon (copy).svg"),
+	"snowball": preload("res://snOball 1.png"),
+	"speed_boost": preload("res://New Piskel 1.png"),
+	"ice": preload("res://icon (copy).svg"),
+	"crazy_grip": preload("res://icon.svg"),
+	"crazy_speed": preload("res://icon.svg")
+}
 
 func _ready() -> void:
 	repos()
 	initialize_modes()
+	update_all_spawn_node_sprites()
 	print_modes()
-	
+
 func repos():
 	spawn_nodes.clear()
 	
@@ -20,35 +35,54 @@ func repos():
 		
 	var random_name = spawn_nodes[randi_range(0, spawn_nodes.size() - 1)]
 	var spawnpos = get_parent().find_child(random_name).position
-	
 	position = spawnpos
-	print("Spawned at:", random_name)
-	
+
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("action1_1") and entered:
 		repos()
 		action()
 		print_modes()
-# Give each node a random starting mode
+
+# Give each node a random *unique* starting mode
 func initialize_modes():
 	node_modes.clear()
+	taken_nodes.clear()
 	
 	for node in spawn_nodes:
 		var mode = skoyter[randi_range(0, skoyter.size() - 1)]
 		
-		# reroll until mode is unique
 		while mode in taken_nodes:
 			mode = skoyter[randi_range(0, skoyter.size() - 1)]
-			
+		
 		node_modes[node] = mode
 		taken_nodes.append(mode)
-		
-# Randomize mode every time action happens
+
 func action():
+	# Randomize all nodes’ modes
 	for node in spawn_nodes:
 		node_modes[node] = skoyter[randi_range(0, skoyter.size() - 1)]
+	
+	# Update all sprites
+	update_all_spawn_node_sprites()
+func update_all_spawn_node_sprites():
+	for node_name in spawn_nodes:
+		var node = get_parent().find_child(node_name)
+		if node == null:
+			continue
 		
-# Print all node → random mode pairs
+		var mode = node_modes[node_name]
+		
+		if node.has_node("Sprite2D"):
+			node.scale = Vector2(0.1, 0.1)
+			var spr = node.get_node("Sprite2D")
+			if mode_sprites.has(mode):
+				spr.texture = mode_sprites[mode]
+			else:
+				print("Missing sprite for mode:", mode)
+		else:
+			print(node_name, " has no Sprite2D child")
+
+# Debug printing
 func print_modes():
 	for node in spawn_nodes:
 		print(node, " = ", node_modes[node])

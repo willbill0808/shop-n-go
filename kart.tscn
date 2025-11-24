@@ -1,9 +1,11 @@
-[gd_scene load_steps=13 format=4 uid="uid://cbiu6xk45q6jh"]
+[gd_scene load_steps=16 format=4 uid="uid://cbiu6xk45q6jh"]
 
 [ext_resource type="Texture2D" uid="uid://dylrocadc6dhb" path="res://temp assets/World of Solaria Blacksmith Update 02 DEMO/World of Solaria Blacksmith New Style DEMO.png" id="1_5y1ng"]
 [ext_resource type="Texture2D" uid="uid://d0nlve3cljyxr" path="res://temp assets/winter.png" id="2_o4efj"]
 [ext_resource type="PackedScene" uid="uid://vkdwbvdm1b5j" path="res://spawn_nodes.tscn" id="3_fhxd7"]
+[ext_resource type="Script" uid="uid://bfwtwdahjlg78" path="res://spawn_nodes.gd" id="4_5vti7"]
 [ext_resource type="PackedScene" uid="uid://bu835lab1nwkl" path="res://temp_item.tscn" id="4_6vfav"]
+[ext_resource type="Script" uid="uid://cdsrv2wdb8aek" path="res://node_sprite_1.gd" id="4_fdrv1"]
 [ext_resource type="PackedScene" uid="uid://be2kkcb4vvsvp" path="res://player.tscn" id="5_37pdu"]
 [ext_resource type="PackedScene" uid="uid://hme320iolk5t" path="res://scenes_items/player_2.tscn" id="6_bncll"]
 
@@ -537,6 +539,9 @@ texture_region_size = Vector2i(64, 64)
 [sub_resource type="TileSet" id="TileSet_6vfav"]
 sources/0 = SubResource("TileSetAtlasSource_fhxd7")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_kfc8d"]
+radius = 60.00833
+
 [node name="kart" type="Node2D"]
 
 [node name="background" type="TileMapLayer" parent="."]
@@ -554,33 +559,109 @@ tile_set = SubResource("TileSet_6vfav")
 
 [node name="spawn_node1" parent="." groups=["spawn_nodes"] instance=ExtResource("3_fhxd7")]
 position = Vector2(200, 216)
+script = ExtResource("4_5vti7")
+
+[node name="Area2D" type="Area2D" parent="spawn_node1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spawn_node1/Area2D"]
+shape = SubResource("CircleShape2D_kfc8d")
 
 [node name="spawn_node2" parent="." groups=["spawn_nodes"] instance=ExtResource("3_fhxd7")]
 position = Vector2(612, 314)
+script = ExtResource("4_5vti7")
+
+[node name="Area2D" type="Area2D" parent="spawn_node2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spawn_node2/Area2D"]
+shape = SubResource("CircleShape2D_kfc8d")
 
 [node name="spawn_node3" parent="." groups=["spawn_nodes"] instance=ExtResource("3_fhxd7")]
 position = Vector2(1009, 223)
+script = ExtResource("4_5vti7")
+
+[node name="Area2D" type="Area2D" parent="spawn_node3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spawn_node3/Area2D"]
+shape = SubResource("CircleShape2D_kfc8d")
 
 [node name="spawn_node4" parent="." groups=["spawn_nodes"] instance=ExtResource("3_fhxd7")]
 position = Vector2(196, 443)
+script = ExtResource("4_5vti7")
+
+[node name="Area2D" type="Area2D" parent="spawn_node4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spawn_node4/Area2D"]
+shape = SubResource("CircleShape2D_kfc8d")
 
 [node name="spawn_node5" parent="." groups=["spawn_nodes"] instance=ExtResource("3_fhxd7")]
 position = Vector2(590, 523)
+script = ExtResource("4_5vti7")
+
+[node name="Area2D" type="Area2D" parent="spawn_node5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spawn_node5/Area2D"]
+shape = SubResource("CircleShape2D_kfc8d")
 
 [node name="spawn_node6" parent="." groups=["spawn_nodes"] instance=ExtResource("3_fhxd7")]
 position = Vector2(958, 476)
+script = ExtResource("4_5vti7")
+
+[node name="Area2D" type="Area2D" parent="spawn_node6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spawn_node6/Area2D"]
+shape = SubResource("CircleShape2D_kfc8d")
 
 [node name="spawn_node7" parent="." groups=["spawn_nodes"] instance=ExtResource("3_fhxd7")]
 position = Vector2(386, 415)
+script = ExtResource("4_5vti7")
+
+[node name="Area2D" type="Area2D" parent="spawn_node7"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spawn_node7/Area2D"]
+shape = SubResource("CircleShape2D_kfc8d")
 
 [node name="spawn_node8" parent="." groups=["spawn_nodes"] instance=ExtResource("3_fhxd7")]
 position = Vector2(887, 421)
+script = ExtResource("4_5vti7")
+
+[node name="Area2D" type="Area2D" parent="spawn_node8"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spawn_node8/Area2D"]
+shape = SubResource("CircleShape2D_kfc8d")
 
 [node name="temp_item" parent="." instance=ExtResource("4_6vfav")]
 position = Vector2(-84, 0)
+scale = Vector2(0.1, 0.1)
+
+[node name="node_sprite_1" type="Sprite2D" parent="temp_item"]
+position = Vector2(284, 216)
+script = ExtResource("4_fdrv1")
+
+[node name="node_sprite_2" type="Sprite2D" parent="temp_item"]
+position = Vector2(696, 314)
+
+[node name="node_sprite_3" type="Sprite2D" parent="temp_item"]
+position = Vector2(1093, 223)
+
+[node name="node_sprite_4" type="Sprite2D" parent="temp_item"]
+position = Vector2(280, 443)
+
+[node name="node_sprite_5" type="Sprite2D" parent="temp_item"]
+position = Vector2(674, 523)
+
+[node name="node_sprite_6" type="Sprite2D" parent="temp_item"]
+position = Vector2(1042, 476)
+
+[node name="node_sprite_7" type="Sprite2D" parent="temp_item"]
+position = Vector2(470, 415)
+
+[node name="node_sprite_8" type="Sprite2D" parent="temp_item"]
+position = Vector2(971, 421)
 
 [node name="Player" parent="." instance=ExtResource("5_37pdu")]
 position = Vector2(294, 191)
 motion_mode = 1
 
 [node name="Player2" parent="." instance=ExtResource("6_bncll")]
+
+[connection signal="area_entered" from="spawn_node1/Area2D" to="spawn_node1" method="_on_area_2d_area_entered"]

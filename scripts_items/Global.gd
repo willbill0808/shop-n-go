@@ -8,3 +8,6 @@ var volume = 0
 var grip = {}
 var max_speed = {}
 var acc = {}
+
+var player_item_1 = false
+var player_item_2 = false

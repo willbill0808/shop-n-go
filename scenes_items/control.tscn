@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cbgokq5ig0525"]
 
 [ext_resource type="Script" uid="uid://fl22jtnhd35x" path="res://scripts_items/control.gd" id="1_hruoc"]
-[ext_resource type="Script" uid="uid://cdvn77t34x066" path="res://scenes_items/background_music.gd" id="2_ylctn"]
+[ext_resource type="Script" uid="uid://cdvn77t34x066" path="res://scripts_items/background_music.gd" id="2_ylctn"]
 
 [node name="Meny" type="Control"]
 layout_mode = 3
