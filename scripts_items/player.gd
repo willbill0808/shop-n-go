@@ -27,7 +27,7 @@ func _physics_process(delta: float) -> void:
 	if Global.snowball < 16 and current_state == "SNOWBALL" and Input.is_action_just_pressed("shoot_1"):
 		shoot()
 
-	elif current_state == "ICE" and Input.is_action_just_pressed("shoot_1"):
+	elif current_state == "ICE" and Input.is_action_just_pressed("shoot"):
 		ice()
 		
 
@@ -80,6 +80,3 @@ func ice():
 	var b = Ice.instantiate()
 	b.global_position = marker.global_position
 	get_tree().current_scene.add_child(b)
-
-
-		

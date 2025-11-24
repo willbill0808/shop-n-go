@@ -1,5 +1,10 @@
 extends Node2D
 
-var snowball = 0
+var snowball_1 = 0
+
+var snowball_2 = 0
 
 var volume = 0
+var grip = {}
+var max_speed = {}
+var acc = {}
