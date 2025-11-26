@@ -25,6 +25,7 @@ func _ready() -> void:
 	initialize_modes()
 	update_all_spawn_node_sprites()
 	print_modes()
+	Vector2(0, 0)
 
 func repos():
 	spawn_nodes.clear()
@@ -38,10 +39,8 @@ func repos():
 	position = spawnpos
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("action1_1") and entered:
-		repos()
-		action()
-		print_modes()
+	if player1_in_area == true:
+		print("DREP WILLIAM")
 
 # Give each node a random *unique* starting mode
 func initialize_modes():
@@ -86,3 +85,21 @@ func update_all_spawn_node_sprites():
 func print_modes():
 	for node in spawn_nodes:
 		print(node, " = ", node_modes[node])
+		
+var player1_in_area = false
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	player1_in_area = true
+
+func _on_area_2d_area_exited(area: Area2D) -> void:
+	if area.is_in_group("player1"):
+		player1_in_area = false
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	player1_in_area = true
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if body.is_in_group("player1"):
+		player1_in_area = false
