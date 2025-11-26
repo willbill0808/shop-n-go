@@ -77,9 +77,6 @@ func _physics_process(delta):
 			# hard_turn_stop = 0.95 → beholder kun 5% av farten
 		# ---------------------------------------------------
 
-		var target = input_dir * max_speed
-		velocity = velocity.move_toward(target, accel * delta)
-
 		# Accelerate
 		var target := input_dir * max_speed
 		velocity = velocity.move_toward(target, accel * delta)
