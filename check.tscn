@@ -1,20 +1,12 @@
-<<<<<<< HEAD
 [gd_scene load_steps=3 format=3 uid="uid://e3ob8ldklw4c"]
 
-[ext_resource type="Script" uid="uid://b4k6cffpkvc5r" path="res://check.gd" id="1_ekwum"]
-=======
-[gd_scene load_steps=3 format=3 uid="uid://chmfywym1vvdj"]
-
 [ext_resource type="Script" path="res://check.gd" id="1_ekwum"]
->>>>>>> main
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_48k1b"]
-b = Vector2(0, 254)
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_4vjtv"]
+b = Vector2(0, 164)
 
-[node name="check" type="Area2D"]
+[node name="Area2D" type="Area2D"]
 script = ExtResource("1_ekwum")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("SegmentShape2D_48k1b")
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+shape = SubResource("SegmentShape2D_4vjtv")
