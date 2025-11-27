@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 [gd_scene load_steps=3 format=3 uid="uid://e3ob8ldklw4c"]
 
 [ext_resource type="Script" uid="uid://b4k6cffpkvc5r" path="res://check.gd" id="1_ekwum"]
+=======
+[gd_scene load_steps=3 format=3 uid="uid://chmfywym1vvdj"]
+
+[ext_resource type="Script" path="res://check.gd" id="1_ekwum"]
+>>>>>>> main
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_48k1b"]
 b = Vector2(0, 254)
