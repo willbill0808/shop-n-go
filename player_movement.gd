@@ -1,12 +1,5 @@
 extends CharacterBody2D
 
-@export var max_speed := 450.0
-@export var accel := 350.0
-@export var ice_friction := 0.01
-@export var brake_force := 0
-
-# Hvor hardt du stopper ved retningsskifte
-@export var hard_turn_stop := 0.0   # 0.0 = ingen stopp, 0.95 = nesten full stopp
 # --- MODE SWITCH ---
 var modes := ["NORMAL", "ICE"]
 var mode := "NORMAL"
@@ -19,6 +12,11 @@ var mode := "NORMAL"
 # -------------------------
 # ICE MOVEMENT VALUES
 # -------------------------
+@export var max_speed := 450.0
+@export var accel := 350.0
+@export var ice_friction := 0.01
+@export var brake_force := 0
+@export var hard_turn_stop := 0     # 0.0 = ingen stopp, 0.95 = nesten full stopp ved snu
 
 
 func _physics_process(delta):
@@ -73,9 +71,6 @@ func _physics_process(delta):
 		# HARD TURN STOP
 		if velocity.length() > 5.0 and velocity.dot(input_dir) < 0:
 			velocity *= (1.0 - hard_turn_stop)
-			# Dette kutter nesten hele farten brått:
-			# hard_turn_stop = 0.95 → beholder kun 5% av farten
-		# ---------------------------------------------------
 
 		# Accelerate
 		var target := input_dir * max_speed
@@ -86,5 +81,7 @@ func _physics_process(delta):
 
 	# Ice gliding
 	velocity *= (1.0 - ice_friction)
+	
+	
 
 	move_and_slide()
