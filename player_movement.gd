@@ -71,12 +71,6 @@ func _physics_process(delta):
 		# HARD TURN STOP
 		if velocity.length() > 5.0 and velocity.dot(input_dir) < 0:
 			velocity *= (1.0 - hard_turn_stop)
-<<<<<<< HEAD
-			# Dette kutter nesten hele farten brått:
-			# hard_turn_stop = 0.95 → beholder kun 5% av farten
-		# ---------------------------------------------------
-=======
->>>>>>> main
 
 		# Accelerate
 		var target := input_dir * max_speed

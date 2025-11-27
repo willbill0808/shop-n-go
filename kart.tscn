@@ -609,16 +609,11 @@ position = Vector2(887, 421)
 [node name="temp_item" parent="." instance=ExtResource("4_6vfav")]
 position = Vector2(-84, 0)
 
-[node name="Player" parent="." instance=ExtResource("5_37pdu")]
-position = Vector2(294, 191)
+[node name="Player1" parent="." instance=ExtResource("5_37pdu")]
+position = Vector2(335, 193)
 motion_mode = 1
-normal_speed = null
-max_speed = null
-accel = null
-ice_friction = null
-brake_force = null
-hard_turn_stop = null
 
 [node name="Player2" parent="." instance=ExtResource("6_bncll")]
 
 [node name="check" parent="." instance=ExtResource("9_kfc8d")]
+position = Vector2(351, 107)

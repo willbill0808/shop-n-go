@@ -1,12 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://e3ob8ldklw4c"]
 
-[ext_resource type="Script" path="res://check.gd" id="1_ekwum"]
+[ext_resource type="Script" uid="uid://b4k6cffpkvc5r" path="res://check.gd" id="1_ekwum"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_4vjtv"]
-b = Vector2(0, 164)
+b = Vector2(0, 184)
 
 [node name="Area2D" type="Area2D"]
 script = ExtResource("1_ekwum")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("SegmentShape2D_4vjtv")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
