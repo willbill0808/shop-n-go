@@ -1,8 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://dtbka0ns8qd7"]
+[gd_scene load_steps=19 format=3 uid="uid://dtbka0ns8qd7"]
 
 [ext_resource type="Script" uid="uid://b0ci7q04r88dn" path="res://scenes_items/area_2d.gd" id="1_gm6xk"]
 [ext_resource type="Script" uid="uid://d4fumt8m0aeyx" path="res://collision_shape_2d_2.gd" id="1_rcy2c"]
 [ext_resource type="Script" uid="uid://c4ohdrt1qtyx4" path="res://collision_shape_2d.gd" id="2_gm6xk"]
+[ext_resource type="Script" uid="uid://du8ob5yrsn1u8" path="res://scenes_items/area_2d_2.gd" id="3_abc4i"]
+[ext_resource type="Script" uid="uid://c1x5hm13a671o" path="res://scenes_items/area_2d_3.gd" id="4_g1o1d"]
+[ext_resource type="Script" uid="uid://7ujjb773y51x" path="res://scenes_items/area_2d_4.gd" id="6_anldf"]
+[ext_resource type="Script" uid="uid://crpq6a2h8gwat" path="res://scenes_items/area_2d_5.gd" id="7_hkc25"]
+[ext_resource type="Script" uid="uid://do33lomovv3ob" path="res://scenes_items/area_2d_6.gd" id="8_wlcll"]
+[ext_resource type="Script" uid="uid://bx4i1i4mpwf17" path="res://scenes_items/area_2d_7.gd" id="9_i7r1d"]
+[ext_resource type="Script" uid="uid://dveknevvnhmfk" path="res://scenes_items/area_2d_8.gd" id="10_hylm1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lqael"]
 radius = 314.67783
@@ -41,7 +48,7 @@ shape = SubResource("CircleShape2D_lqael")
 script = ExtResource("1_rcy2c")
 
 [node name="Area2D" type="Area2D" parent="."]
-script = ExtResource("1_gm6xk")
+script = ExtResource("3_abc4i")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(976, 128)
@@ -49,7 +56,7 @@ scale = Vector2(0.3, 0.3)
 shape = SubResource("CircleShape2D_rkf6a")
 
 [node name="Area2D3" type="Area2D" parent="."]
-script = ExtResource("1_gm6xk")
+script = ExtResource("4_g1o1d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
 position = Vector2(998, 509)
@@ -58,7 +65,7 @@ shape = SubResource("CircleShape2D_dpgg2")
 script = ExtResource("2_gm6xk")
 
 [node name="Area2D4" type="Area2D" parent="."]
-script = ExtResource("1_gm6xk")
+script = ExtResource("6_anldf")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Area2D4"]
 position = Vector2(846.0001, 372)
@@ -66,7 +73,7 @@ scale = Vector2(0.3, 0.3)
 shape = SubResource("CircleShape2D_sf6hb")
 
 [node name="Area2D5" type="Area2D" parent="."]
-script = ExtResource("1_gm6xk")
+script = ExtResource("7_hkc25")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Area2D5"]
 position = Vector2(607, 475)
@@ -74,7 +81,7 @@ scale = Vector2(0.3, 0.3)
 shape = SubResource("CircleShape2D_0y3ma")
 
 [node name="Area2D6" type="Area2D" parent="."]
-script = ExtResource("1_gm6xk")
+script = ExtResource("8_wlcll")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="Area2D6"]
 position = Vector2(164, 490)
@@ -82,7 +89,7 @@ scale = Vector2(0.3, 0.3)
 shape = SubResource("CircleShape2D_emfa5")
 
 [node name="Area2D7" type="Area2D" parent="."]
-script = ExtResource("1_gm6xk")
+script = ExtResource("9_i7r1d")
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="Area2D7"]
 position = Vector2(385, 382)
@@ -90,7 +97,7 @@ scale = Vector2(0.3, 0.3)
 shape = SubResource("CircleShape2D_abc4i")
 
 [node name="Area2D8" type="Area2D" parent="."]
-script = ExtResource("1_gm6xk")
+script = ExtResource("10_hylm1")
 
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="Area2D8"]
 position = Vector2(146, 164)
@@ -100,16 +107,23 @@ shape = SubResource("CircleShape2D_g1o1d")
 [connection signal="area_entered" from="Area2D2" to="Area2D2" method="_on_area_entered"]
 [connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]
 [connection signal="area_entered" from="Area2D" to="Area2D2" method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]
 [connection signal="body_entered" from="Area2D" to="Area2D2" method="_on_area_2d_body_entered"]
 [connection signal="area_entered" from="Area2D3" to="Area2D2" method="_on_area_2d_3_area_entered"]
+[connection signal="area_entered" from="Area2D3" to="Area2D3" method="_on_area_entered"]
 [connection signal="body_entered" from="Area2D3" to="Area2D2" method="_on_area_2d_3_body_entered"]
 [connection signal="area_entered" from="Area2D4" to="Area2D2" method="_on_area_2d_4_area_entered"]
+[connection signal="area_entered" from="Area2D4" to="Area2D4" method="_on_area_entered"]
 [connection signal="body_entered" from="Area2D4" to="Area2D2" method="_on_area_2d_4_body_entered"]
 [connection signal="area_entered" from="Area2D5" to="Area2D2" method="_on_area_2d_5_area_entered"]
+[connection signal="area_entered" from="Area2D5" to="Area2D5" method="_on_area_entered"]
 [connection signal="body_entered" from="Area2D5" to="Area2D2" method="_on_area_2d_5_body_entered"]
 [connection signal="area_entered" from="Area2D6" to="Area2D2" method="_on_area_2d_6_area_entered"]
+[connection signal="area_entered" from="Area2D6" to="Area2D6" method="_on_area_entered"]
 [connection signal="body_entered" from="Area2D6" to="Area2D2" method="_on_area_2d_6_body_entered"]
 [connection signal="area_entered" from="Area2D7" to="Area2D2" method="_on_area_2d_7_area_entered"]
+[connection signal="area_entered" from="Area2D7" to="Area2D7" method="_on_area_entered"]
 [connection signal="body_entered" from="Area2D7" to="Area2D2" method="_on_area_2d_7_body_entered"]
 [connection signal="area_entered" from="Area2D8" to="Area2D2" method="_on_area_2d_8_area_entered"]
+[connection signal="area_entered" from="Area2D8" to="Area2D8" method="_on_area_entered"]
 [connection signal="body_entered" from="Area2D8" to="Area2D2" method="_on_area_2d_8_body_entered"]

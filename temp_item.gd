@@ -1,23 +1,26 @@
 extends StaticBody2D
 
-var entered = false
+# --- Spawn nodes ---
 var spawn_nodes = []
 var node_modes = {}
 var taken_nodes = []
 
-var skoyter = ["grip", "speed", "max_speed", "snowball", "speed_boost", "ice", "crazy_grip", "crazy_speed"]
+# --- Item lists ---
+var skoyter = ["snowball", "speed_boost", "ice"]
+var helmet_items = ["speed1", "speed2"]
+var skoyter_nodes = ["max_speed1", "extragrip", "max_speed2"]
 
+# --- Sprite handling ---
 @onready var sprite = $Sprite2D
-
 var mode_sprites = {
-	"grip": preload("res://icon (copy).svg"),
-	"speed": preload("res://icon.svg"),
-	"max_speed": preload("res://icon (copy).svg"),
 	"snowball": preload("res://snOball 1.png"),
 	"speed_boost": preload("res://New Piskel 1.png"),
 	"ice": preload("res://icon (copy).svg"),
-	"crazy_grip": preload("res://icon.svg"),
-	"crazy_speed": preload("res://icon.svg")
+	"speed1": preload("res://icon (copy).svg"),
+	"speed2": preload("res://icon.svg"),
+	"max_speed1": preload("res://icon.svg"),
+	"extragrip": preload("res://icon (copy).svg"),
+	"max_speed2": preload("res://icon.svg")
 }
 
 func _ready() -> void:
@@ -26,42 +29,40 @@ func _ready() -> void:
 	update_all_spawn_node_sprites()
 	print_modes()
 
+# --- Position temp_item randomly on one of the spawn nodes ---
 func repos():
 	spawn_nodes.clear()
-	
 	var placeList = get_tree().get_nodes_in_group("spawn_nodes")
 	for o in placeList:
 		spawn_nodes.append(o.name)
-		
-	var random_name = spawn_nodes[randi_range(0, spawn_nodes.size() - 1)]
-	var spawnpos = get_parent().find_child(random_name).position
-	position = spawnpos
+	
+	if spawn_nodes.size() > 0:
+		var random_name = spawn_nodes[randi_range(0, spawn_nodes.size() - 1)]
+		var spawnpos = get_parent().find_child(random_name).position
+		position = spawnpos
 
-func _process(delta: float) -> void:
-	if player1_in_area == true:
-		print("DREP WILLIAM")
-
-# Give each node a random *unique* starting mode
+# --- Assign random unique modes to each spawn node ---
 func initialize_modes():
 	node_modes.clear()
 	taken_nodes.clear()
 	
-	for node in spawn_nodes:
-		var mode = skoyter[randi_range(0, skoyter.size() - 1)]
-		
+	var all_items = skoyter + helmet_items + skoyter_nodes
+	
+	for node_name in spawn_nodes:
+		var mode = all_items[randi_range(0, all_items.size() - 1)]
 		while mode in taken_nodes:
-			mode = skoyter[randi_range(0, skoyter.size() - 1)]
-		
-		node_modes[node] = mode
+			mode = all_items[randi_range(0, all_items.size() - 1)]
+		node_modes[node_name] = mode
 		taken_nodes.append(mode)
 
+# --- Randomize all nodes’ modes on demand ---
 func action():
-	# Randomize all nodes’ modes
-	for node in spawn_nodes:
-		node_modes[node] = skoyter[randi_range(0, skoyter.size() - 1)]
-	
-	# Update all sprites
+	var all_items = skoyter + helmet_items + skoyter_nodes
+	for node_name in spawn_nodes:
+		node_modes[node_name] = all_items[randi_range(0, all_items.size() - 1)]
 	update_all_spawn_node_sprites()
+
+# --- Update sprites and assign mode to each node ---
 func update_all_spawn_node_sprites():
 	for node_name in spawn_nodes:
 		var node = get_parent().find_child(node_name)
@@ -70,38 +71,25 @@ func update_all_spawn_node_sprites():
 		
 		var mode = node_modes[node_name]
 		
+		# Update Sprite2D texture
 		if node.has_node("Sprite2D"):
 			node.scale = Vector2(0.1, 0.1)
 			var spr = node.get_node("Sprite2D")
 			if mode_sprites.has(mode):
 				spr.texture = mode_sprites[mode]
-			else:
-				print("Missing sprite for mode:", mode)
-		else:
-			print(node_name, " has no Sprite2D child")
-
-# Debug printing
-func print_modes():
-	for node in spawn_nodes:
-		print(node, " = ", node_modes[node])
 		
-var player1_in_area = false
+		# Assign mode via method
+		if node.has_method("set_mode"):
+			node.set_mode(mode)
 
-func _on_area_2d_area_entered(area: Area2D) -> void:
-	player1_in_area = true
+# --- Debug print ---
+func print_modes():
+	for node_name in spawn_nodes:
+		print(node_name, " = ", node_modes[node_name])
 
-func _on_area_2d_area_exited(area: Area2D) -> void:
-	if area.is_in_group("player1"):
-		player1_in_area = false
-
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	player1_in_area = true
-
-
-func _on_area_2d_body_exited(body: Node2D) -> void:
-	if body.is_in_group("player1"):
-		player1_in_area = false
-
-func _enter_tree():
-	Vector2(-30,90)
+# --- Called when a player picks up a node ---
+func on_spawn_node_collected(mode: String):
+	# This function could trigger effects based on mode
+	# e.g., giving a helmet, skoyter, or temporary item
+	# For now, just print
+	print("Player picked up:", mode)

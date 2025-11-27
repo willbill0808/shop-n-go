@@ -87,13 +87,31 @@ func _physics_process(delta):
 			velocity *= (1.0 - hard_turn_stop)
 			# Dette kutter nesten hele farten brått:
 			# hard_turn_stop = 0.95 → beholder kun 5% av farten
+		# Start with base speed
+		var speed_multiplier = 1.0
+
+# Apply SPEED_BOOST
 		if current_state == "SPEED_BOOST":
-			var boosted_speed = max_speed * boost_multiplier
-			var target = input_dir * boosted_speed
-			velocity = velocity.move_toward(target, accel * delta * boost_multiplier)
-		else:
-			var target = input_dir * max_speed
-			velocity = velocity.move_toward(target, accel * delta)
+			speed_multiplier *= boost_multiplier
+
+# Apply other dynamic modifiers (like snowball slow, grip, etc.)
+		if is_in_group("player1"):
+			for item in Global.max_speed_1:
+				if item in Global.max_speed_1:  # e.g., ["speed1", "speed2"]
+					speed_multiplier *= 1.2  # adjust as needed 
+					break
+		elif is_in_group("player2"):
+			for item in Global.max_speed_2:
+				if item in Global.max_speed_2:
+					speed_multiplier *= 1.2
+					break
+
+# Calculate target velocity
+		var target_velocity = input_dir * max_speed * speed_multiplier
+
+# Smoothly accelerate toward target
+		velocity = velocity.move_toward(target_velocity, accel * delta * speed_multiplier)
+
 
 		# Accelerate
 		var target := input_dir * max_speed
@@ -102,8 +120,26 @@ func _physics_process(delta):
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, brake_force * delta)
 
-	# Ice gliding
-	velocity *= (1.0 - ice_friction)
+
+	var applied_ice_friction = ice_friction
+
+# PLAYER 1
+	if is_in_group("player1"):
+		for item in Global.grip_1:
+			if item in Global.grip_1:
+				applied_ice_friction = 0.2  # increase friction
+				break
+				
+# PLAYER 2
+	elif is_in_group("player2"):
+		for item in Global.grip_2:
+			if item in Global.grip_2:
+				applied_ice_friction = 0.2
+				break
+
+# Apply friction
+	velocity *= (1.0 - applied_ice_friction)
+
 	
 	if Global.snowball_2 < 16 and current_state == "SNOWBALL" and Input.is_action_just_pressed("shoot"):
 		shoot()
