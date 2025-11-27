@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://cbiu6xk45q6jh"]
+[gd_scene load_steps=17 format=4 uid="uid://cbiu6xk45q6jh"]
 
 [ext_resource type="Texture2D" uid="uid://dylrocadc6dhb" path="res://temp assets/World of Solaria Blacksmith Update 02 DEMO/World of Solaria Blacksmith New Style DEMO.png" id="1_5y1ng"]
 [ext_resource type="Texture2D" uid="uid://d0nlve3cljyxr" path="res://temp assets/winter.png" id="2_o4efj"]
@@ -8,8 +8,7 @@
 [ext_resource type="Script" uid="uid://cdsrv2wdb8aek" path="res://node_sprite_1.gd" id="4_fdrv1"]
 [ext_resource type="PackedScene" uid="uid://be2kkcb4vvsvp" path="res://player.tscn" id="5_37pdu"]
 [ext_resource type="PackedScene" uid="uid://hme320iolk5t" path="res://scenes_items/player_2.tscn" id="6_bncll"]
-[ext_resource type="Script" uid="uid://d4fumt8m0aeyx" path="res://collision_shape_2d_2.gd" id="7_kfc8d"]
-[ext_resource type="Script" uid="uid://c4ohdrt1qtyx4" path="res://collision_shape_2d.gd" id="8_0gfw6"]
+[ext_resource type="PackedScene" uid="uid://dtbka0ns8qd7" path="res://scenes_items/collision.tscn" id="9_kfc8d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o4efj"]
 texture = ExtResource("1_5y1ng")
@@ -544,30 +543,6 @@ sources/0 = SubResource("TileSetAtlasSource_fhxd7")
 [sub_resource type="CircleShape2D" id="CircleShape2D_kfc8d"]
 radius = 60.00833
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_5vti7"]
-radius = 1.3029195
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_0gfw6"]
-radius = 1.0692052
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_63mqc"]
-radius = 1.4018546
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_caiu3"]
-radius = 599.4163
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_xwsuh"]
-radius = 676.82916
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_kesg6"]
-radius = 663.77405
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_i0xxp"]
-radius = 305.28662
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_s151y"]
-radius = 707.2481
-
 [node name="kart" type="Node2D"]
 
 [node name="background" type="TileMapLayer" parent="."]
@@ -693,57 +668,15 @@ position = Vector2(470, 415)
 [node name="node_sprite_8" type="Sprite2D" parent="temp_item"]
 position = Vector2(971, 421)
 
-[node name="Area2D" type="Area2D" parent="temp_item"]
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="temp_item/Area2D"]
-position = Vector2(10810, 2240)
-scale = Vector2(500, 500)
-shape = SubResource("CircleShape2D_5vti7")
-script = ExtResource("7_kfc8d")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="temp_item/Area2D"]
-position = Vector2(6980, 5300)
-scale = Vector2(500, 500)
-shape = SubResource("CircleShape2D_0gfw6")
-script = ExtResource("8_0gfw6")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="temp_item/Area2D"]
-position = Vector2(11140, 4910)
-scale = Vector2(500, 500)
-shape = SubResource("CircleShape2D_63mqc")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="temp_item/Area2D"]
-position = Vector2(9299.999, 4009.9995)
-shape = SubResource("CircleShape2D_caiu3")
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="temp_item/Area2D"]
-position = Vector2(7179.9995, 3169.9998)
-shape = SubResource("CircleShape2D_xwsuh")
-
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="temp_item/Area2D"]
-position = Vector2(2859.9998, 4259.9995)
-shape = SubResource("CircleShape2D_kesg6")
-
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="temp_item/Area2D"]
-position = Vector2(4589.9995, 4149.9995)
-shape = SubResource("CircleShape2D_i0xxp")
-
-[node name="CollisionShape2D8" type="CollisionShape2D" parent="temp_item/Area2D"]
-position = Vector2(2799.9998, 2129.9998)
-shape = SubResource("CircleShape2D_s151y")
-
 [node name="Player" parent="." instance=ExtResource("5_37pdu")]
 position = Vector2(294, 191)
 motion_mode = 1
 
 [node name="Player2" parent="." instance=ExtResource("6_bncll")]
 
+[node name="Area2d" parent="." instance=ExtResource("9_kfc8d")]
+
 [connection signal="area_entered" from="spawn_node1/Area2D" to="spawn_node1" method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="spawn_node1/Area2D" to="spawn_node1" method="_on_area_2d_area_exited"]
 [connection signal="body_entered" from="spawn_node8/Area2D" to="spawn_node1" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="spawn_node8/Area2D" to="spawn_node1" method="_on_area_2d_body_exited"]
-[connection signal="area_entered" from="temp_item/Area2D" to="temp_item" method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="temp_item/Area2D" to="temp_item" method="_on_area_2d_area_exited"]
-[connection signal="body_entered" from="temp_item/Area2D" to="spawn_node1" method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="temp_item/Area2D" to="temp_item" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="temp_item/Area2D" to="temp_item" method="_on_area_2d_body_exited"]

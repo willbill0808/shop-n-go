@@ -25,7 +25,6 @@ func _ready() -> void:
 	initialize_modes()
 	update_all_spawn_node_sprites()
 	print_modes()
-	Vector2(0, 0)
 
 func repos():
 	spawn_nodes.clear()
@@ -103,3 +102,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player1"):
 		player1_in_area = false
+
+func _enter_tree():
+	Vector2(-30,90)
