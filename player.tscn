@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://be2kkcb4vvsvp"]
+[gd_scene load_steps=16 format=3 uid="uid://be2kkcb4vvsvp"]
 
 [ext_resource type="Texture2D" uid="uid://3on3eam61dyk" path="res://temp assets/dinoCharactersVersion1.1/sheets/DinoSprites - tard.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://3h0eicwy56l8" path="res://player_movement.gd" id="1_onrkg"]
@@ -90,7 +90,11 @@ animations = [{
 radius = 6.0
 height = 16.0
 
-[node name="Player" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
+size = Vector2(12, 16)
+
+[node name="Player" type="CharacterBody2D" groups=["player1"]]
+collision_mask = 7
 slide_on_ceiling = false
 script = ExtResource("1_onrkg")
 
@@ -105,3 +109,10 @@ shape = SubResource("CapsuleShape2D_urp6f")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="." groups=["player1"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_onrkg")
