@@ -31,11 +31,7 @@ var mode := "NORMAL"
 # -------------------------
 # ICE MOVEMENT VALUES
 # -------------------------
-@export var max_speed := 450.0
-@export var accel := 350.0
-@export var ice_friction := 0.01
-@export var brake_force := 0
-@export var hard_turn_stop := 0     # 0.0 = ingen stopp, 0.95 = nesten full stopp ved snu
+   # 0.0 = ingen stopp, 0.95 = nesten full stopp ved snu
 
 
 func _physics_process(delta):

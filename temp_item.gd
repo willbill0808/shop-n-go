@@ -14,7 +14,7 @@ var skoyter_nodes = ["max_speed1", "extragrip", "max_speed2"]
 @onready var sprite = $Sprite2D
 var mode_sprites = {
 	"snowball": preload("res://snOball 1.png"),
-	"speed_boost": preload("res://New Piskel 1.png"),
+	"speed_boost": preload("res://icon.svg"),
 	"ice": preload("res://icon (copy).svg"),
 	"speed1": preload("res://icon (copy).svg"),
 	"speed2": preload("res://icon.svg"),

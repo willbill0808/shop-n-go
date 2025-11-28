@@ -101,7 +101,7 @@ script = ExtResource("1_onrkg")
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_ivps1")
-animation = &"Idle"
+animation = &"Walking"
 autoplay = "Idle"
 
 [node name="Collision" type="CollisionShape2D" parent="."]
