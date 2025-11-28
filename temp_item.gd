@@ -33,6 +33,7 @@ func _ready() -> void:
 func repos():
 	spawn_nodes.clear()
 	var placeList = get_tree().get_nodes_in_group("spawn_nodes")
+	var placeName = []
 	for o in placeList:
 		spawn_nodes.append(o.name)
 	
