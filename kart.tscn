@@ -1,5 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://cbiu6xk45q6jh"]
-
+[gd_scene load_steps=27 format=4 uid="uid://cbiu6xk45q6jh"]
 
 [ext_resource type="Script" uid="uid://dxupavlw1bkkd" path="res://kart.gd" id="1_5vti7"]
 [ext_resource type="Texture2D" uid="uid://dylrocadc6dhb" path="res://temp assets/World of Solaria Blacksmith Update 02 DEMO/World of Solaria Blacksmith New Style DEMO.png" id="1_5y1ng"]
@@ -11,15 +10,14 @@
 [ext_resource type="Script" uid="uid://cdsrv2wdb8aek" path="res://node_sprite_1.gd" id="4_fdrv1"]
 [ext_resource type="Script" uid="uid://b0ci7q04r88dn" path="res://scenes_items/area_2d.gd" id="5_0gfw6"]
 [ext_resource type="PackedScene" uid="uid://be2kkcb4vvsvp" path="res://player.tscn" id="5_37pdu"]
-[ext_resource type="PackedScene" uid="uid://hme320iolk5t" path="res://scenes_items/player_2.tscn" id="6_bncll"]
+[ext_resource type="PackedScene" uid="uid://cnpylgyclv3oa" path="res://scenes_items/player_2.tscn" id="6_bncll"]
 [ext_resource type="Script" uid="uid://du8ob5yrsn1u8" path="res://scenes_items/area_2d_2.gd" id="6_s151y"]
 [ext_resource type="Script" uid="uid://c1x5hm13a671o" path="res://scenes_items/area_2d_3.gd" id="7_f7d05"]
 [ext_resource type="Script" uid="uid://crpq6a2h8gwat" path="res://scenes_items/area_2d_5.gd" id="8_i0xxp"]
 [ext_resource type="Script" uid="uid://do33lomovv3ob" path="res://scenes_items/area_2d_6.gd" id="9_4baei"]
+[ext_resource type="PackedScene" uid="uid://chmfywym1vvdj" path="res://check.tscn" id="9_kfc8d"]
 [ext_resource type="Script" uid="uid://bx4i1i4mpwf17" path="res://scenes_items/area_2d_7.gd" id="10_ag40y"]
 [ext_resource type="Script" uid="uid://dveknevvnhmfk" path="res://scenes_items/area_2d_8.gd" id="11_s8oyv"]
-[ext_resource type="PackedScene" uid="uid://cnpylgyclv3oa" path="res://scenes_items/player_2.tscn" id="6_bncll"]
-[ext_resource type="PackedScene" uid="uid://chmfywym1vvdj" path="res://check.tscn" id="9_kfc8d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o4efj"]
 texture = ExtResource("1_5y1ng")
@@ -580,6 +578,8 @@ radius = 15.0
 
 [node name="kart" type="Node2D"]
 script = ExtResource("1_5vti7")
+metadata/_edit_vertical_guides_ = [6950.0]
+metadata/_edit_horizontal_guides_ = [650.0]
 
 [node name="background" type="TileMapLayer" parent="."]
 scale = Vector2(3, 3)
@@ -707,10 +707,23 @@ position = Vector2(470, 415)
 position = Vector2(971, 421)
 
 [node name="Player1" parent="." instance=ExtResource("5_37pdu")]
-position = Vector2(335, 193)
+position = Vector2(346, 258)
 motion_mode = 1
 
 [node name="Player2" parent="." instance=ExtResource("6_bncll")]
+
+[node name="check" parent="." instance=ExtResource("9_kfc8d")]
+position = Vector2(6785, 492)
+
+[node name="check2" parent="." instance=ExtResource("9_kfc8d")]
+position = Vector2(8236, -1484)
+
+[node name="cam1" type="Camera2D" parent="."]
+position = Vector2(600, 322)
+
+[node name="cam2" type="Camera2D" parent="."]
+position = Vector2(8344, 22)
+zoom = Vector2(0.19, 0.19)
 
 [connection signal="area_entered" from="spawn_node1" to="spawn_node1" method="_on_area_entered"]
 [connection signal="area_exited" from="spawn_node1" to="spawn_node1" method="_on_area_exited"]
@@ -725,8 +738,3 @@ motion_mode = 1
 [connection signal="area_entered" from="spawn_node8" to="spawn_node8" method="_on_area_entered"]
 [connection signal="body_entered" from="spawn_node8/Area2D" to="spawn_node1" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="spawn_node8/Area2D" to="spawn_node1" method="_on_area_2d_body_exited"]
-[node name="check" parent="." instance=ExtResource("9_kfc8d")]
-position = Vector2(6785, 492)
-
-[node name="check2" parent="." instance=ExtResource("9_kfc8d")]
-position = Vector2(8236, -1484)
