@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=4 uid="uid://cbiu6xk45q6jh"]
 
-[ext_resource type="Script" path="res://kart.gd" id="1_5vti7"]
+[ext_resource type="Script" uid="uid://dxupavlw1bkkd" path="res://kart.gd" id="1_5vti7"]
 [ext_resource type="Texture2D" uid="uid://dylrocadc6dhb" path="res://temp assets/World of Solaria Blacksmith Update 02 DEMO/World of Solaria Blacksmith New Style DEMO.png" id="1_5y1ng"]
 [ext_resource type="Texture2D" uid="uid://d0nlve3cljyxr" path="res://temp assets/winter.png" id="2_o4efj"]
 [ext_resource type="Texture2D" uid="uid://bxjl3p3m6dnuw" path="res://temp assets/Untitled-2 2.png" id="3_fdrv1"]
@@ -619,4 +619,4 @@ motion_mode = 1
 position = Vector2(6785, 492)
 
 [node name="check2" parent="." instance=ExtResource("9_kfc8d")]
-position = Vector2(7100.6963, -249.88867)
+position = Vector2(8236, -1484)
