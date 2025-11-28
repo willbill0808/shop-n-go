@@ -1,47 +1,47 @@
 [gd_scene load_steps=15 format=3 uid="uid://be2kkcb4vvsvp"]
 
-[ext_resource type="Texture2D" uid="uid://3on3eam61dyk" path="res://temp assets/dinoCharactersVersion1.1/sheets/DinoSprites - tard.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://3h0eicwy56l8" path="res://player_movement.gd" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://b12q5iyd3a5n4" path="res://temp assets/Frosty walk.png" id="2_i3pqv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
-atlas = ExtResource("1_4flbx")
-region = Rect2(0, 0, 24, 24)
+atlas = ExtResource("2_i3pqv")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i3pqv"]
-atlas = ExtResource("1_4flbx")
-region = Rect2(24, 0, 24, 24)
+atlas = ExtResource("2_i3pqv")
+region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hqtel"]
-atlas = ExtResource("1_4flbx")
-region = Rect2(48, 0, 24, 24)
+atlas = ExtResource("2_i3pqv")
+region = Rect2(0, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sweqy"]
-atlas = ExtResource("1_4flbx")
-region = Rect2(72, 0, 24, 24)
+atlas = ExtResource("2_i3pqv")
+region = Rect2(96, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2hs0m"]
-atlas = ExtResource("1_4flbx")
-region = Rect2(96, 0, 24, 24)
+atlas = ExtResource("2_i3pqv")
+region = Rect2(96, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1jxqw"]
-atlas = ExtResource("1_4flbx")
-region = Rect2(120, 0, 24, 24)
+atlas = ExtResource("2_i3pqv")
+region = Rect2(0, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dw050"]
-atlas = ExtResource("1_4flbx")
-region = Rect2(144, 0, 24, 24)
+atlas = ExtResource("2_i3pqv")
+region = Rect2(32, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b26j0"]
-atlas = ExtResource("1_4flbx")
-region = Rect2(168, 0, 24, 24)
+atlas = ExtResource("2_i3pqv")
+region = Rect2(64, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n7ghd"]
-atlas = ExtResource("1_4flbx")
-region = Rect2(192, 0, 24, 24)
+atlas = ExtResource("2_i3pqv")
+region = Rect2(96, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nvl01"]
-atlas = ExtResource("1_4flbx")
-region = Rect2(216, 0, 24, 24)
+atlas = ExtResource("2_i3pqv")
+region = Rect2(0, 96, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ivps1"]
 animations = [{
