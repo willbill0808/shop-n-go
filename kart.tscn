@@ -1,5 +1,5 @@
 [gd_scene load_steps=23 format=4 uid="uid://cbiu6xk45q6jh"]
-[gd_scene load_steps=17 format=4 uid="uid://cbiu6xk45q6jh"]
+
 
 [ext_resource type="Script" uid="uid://dxupavlw1bkkd" path="res://kart.gd" id="1_5vti7"]
 [ext_resource type="Texture2D" uid="uid://dylrocadc6dhb" path="res://temp assets/World of Solaria Blacksmith Update 02 DEMO/World of Solaria Blacksmith New Style DEMO.png" id="1_5y1ng"]
