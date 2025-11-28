@@ -28,10 +28,11 @@ func bytt():
 	var cam2 = $cam2
 	cam2.make_current()
 	
-	print($Player1.position )
 	$Player1.position = Vector2(6947, 648)
 	$Player2.position = Vector2(6947, 648)
-	print($Player1.position )
+	
+	$Player1.scale = Vector2(3,3)
+	$Player2.scale = Vector2(3,3)
 
 func _process(delta: float) -> void:
 	
