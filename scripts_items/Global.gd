@@ -16,7 +16,7 @@ var player_item_1 = false
 var player_item_2 = false
 
 var player_helmet_1 = false
-var palyer_helmet_2 = false
+var player_helmet_2 = false
 
 var player_skoyter_1 = false
 var player_skoyter_2 = false
