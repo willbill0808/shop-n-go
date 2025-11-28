@@ -6,8 +6,11 @@
 [node name="Meny" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 1149.0
-offset_bottom = 640.0
+offset_left = 109.0
+offset_top = -36.0
+offset_right = 1258.0
+offset_bottom = 604.0
+scale = Vector2(1.5, 1.5)
 size_flags_vertical = 4
 script = ExtResource("1_hruoc")
 

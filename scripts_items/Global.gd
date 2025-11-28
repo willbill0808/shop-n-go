@@ -30,21 +30,4 @@ func _unhandled_input(event):
 			get_tree().quit()
 
 func _ready():
-	var my_random_number = rng.randf_range(0, 3)
-	if my_random_number == 0:
-		$Player1.current_state = "SPEED_BOOST"
-	elif my_random_number == 1:
-		$Player1.current_state = "SPEED_BOOST_2"
-	elif my_random_number == 2:
-		$Player1.current_state = "SPEED_BOOST_3"
-	elif my_random_number == 3:
-		$Player1.current_state = "SPEED_BOOST_4"
-	var my_random_number2 = rng2.randf_range(0, 3)
-	if my_random_number2 == 0:
-		$Player2.current_state = "SPEED_BOOST"
-	elif my_random_number2 == 1:
-		$Player2.current_state = "SPEED_BOOST_2"
-	elif my_random_number2 == 2:
-		$Player2.current_state = "SPEED_BOOST_3"
-	elif my_random_number2 == 3:
-		$Player2.current_state = "SPEED_BOOST_4"
+	pass

@@ -1,11 +1,11 @@
 extends CharacterBody2D
 
 
-const SPEED = 1000
+const SPEED = 2000
 const JUMP_VELOCITY = -400.0
 
-@export var max_speed := 1000
-@export var accel := 350.0
+@export var max_speed := 1500
+@export var accel := 700.0
 @export var ice_friction := 0.01
 @export var brake_force := 40.0
 

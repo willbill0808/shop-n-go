@@ -1,6 +1,6 @@
 extends Node
 
-
+var ferdig = false
 
 var player1Round = 0
 var player2Round = 0
@@ -36,15 +36,17 @@ func bytt():
 
 func _process(delta: float) -> void:
 	
-	if player1Round == 2:
+	if player1Round == 2 and !ferdig:
 		var player = "player1"
 		playwin(player)
 		$win1.show()
+		ferdig = true
 	
-	if player2Round == 2:
+	if player2Round == 2 and !ferdig:
 		var player = "player2"
 		playwin(player)
 		$win2.show()
+		ferdig = true
 
 
 func _input(event: InputEvent) -> void:
