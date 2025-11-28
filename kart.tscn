@@ -1,5 +1,6 @@
-[gd_scene load_steps=15 format=4 uid="uid://cbiu6xk45q6jh"]
+[gd_scene load_steps=17 format=4 uid="uid://cbiu6xk45q6jh"]
 
+[ext_resource type="Script" path="res://kart.gd" id="1_5vti7"]
 [ext_resource type="Texture2D" uid="uid://dylrocadc6dhb" path="res://temp assets/World of Solaria Blacksmith Update 02 DEMO/World of Solaria Blacksmith New Style DEMO.png" id="1_5y1ng"]
 [ext_resource type="Texture2D" uid="uid://d0nlve3cljyxr" path="res://temp assets/winter.png" id="2_o4efj"]
 [ext_resource type="Texture2D" uid="uid://bxjl3p3m6dnuw" path="res://temp assets/Untitled-2 2.png" id="3_fdrv1"]
@@ -7,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bu835lab1nwkl" path="res://temp_item.tscn" id="4_6vfav"]
 [ext_resource type="PackedScene" uid="uid://be2kkcb4vvsvp" path="res://player.tscn" id="5_37pdu"]
 [ext_resource type="PackedScene" uid="uid://cnpylgyclv3oa" path="res://scenes_items/player_2.tscn" id="6_bncll"]
+[ext_resource type="PackedScene" uid="uid://e3ob8ldklw4c" path="res://check.tscn" id="9_kfc8d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o4efj"]
 texture = ExtResource("1_5y1ng")
@@ -563,6 +565,7 @@ sources/0 = SubResource("TileSetAtlasSource_fhxd7")
 sources/3 = SubResource("TileSetAtlasSource_5vti7")
 
 [node name="kart" type="Node2D"]
+script = ExtResource("1_5vti7")
 
 [node name="background" type="TileMapLayer" parent="."]
 scale = Vector2(3, 3)
@@ -606,8 +609,11 @@ position = Vector2(887, 421)
 [node name="temp_item" parent="." instance=ExtResource("4_6vfav")]
 position = Vector2(-84, 0)
 
-[node name="Player" parent="." instance=ExtResource("5_37pdu")]
-position = Vector2(294, 191)
+[node name="Player1" parent="." instance=ExtResource("5_37pdu")]
+position = Vector2(335, 193)
 motion_mode = 1
 
 [node name="Player2" parent="." instance=ExtResource("6_bncll")]
+
+[node name="check" parent="." instance=ExtResource("9_kfc8d")]
+position = Vector2(351, 107)
