@@ -12,10 +12,11 @@ const JUMP_VELOCITY = -400.0
 # Hvor hardt du stopper ved retningsskifte
 @export var hard_turn_stop := 0   # 0.0 = ingen stopp, 0.95 = nesten full stopp
 
+
 func _physics_process(delta):
 	var input_dir := Vector2(
-		Input.get_action_strength("RIGHT_2") - Input.get_action_strength("LEFT_2"),
-		Input.get_action_strength("DOWN_2") - Input.get_action_strength("UP_2")
+		Input.get_action_strength("RIGHT_1") - Input.get_action_strength("LEFT_1"),
+		Input.get_action_strength("DOWN_1") - Input.get_action_strength("UP_1")
 	).normalized()
 
 	if input_dir != Vector2.ZERO:
