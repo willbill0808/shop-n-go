@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bu835lab1nwkl" path="res://temp_item.tscn" id="4_6vfav"]
 [ext_resource type="PackedScene" uid="uid://be2kkcb4vvsvp" path="res://player.tscn" id="5_37pdu"]
 [ext_resource type="PackedScene" uid="uid://cnpylgyclv3oa" path="res://scenes_items/player_2.tscn" id="6_bncll"]
-[ext_resource type="PackedScene" uid="uid://e3ob8ldklw4c" path="res://check.tscn" id="9_kfc8d"]
+[ext_resource type="PackedScene" uid="uid://chmfywym1vvdj" path="res://check.tscn" id="9_kfc8d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o4efj"]
 texture = ExtResource("1_5y1ng")
@@ -616,4 +616,7 @@ motion_mode = 1
 [node name="Player2" parent="." instance=ExtResource("6_bncll")]
 
 [node name="check" parent="." instance=ExtResource("9_kfc8d")]
-position = Vector2(351, 107)
+position = Vector2(6785, 492)
+
+[node name="check2" parent="." instance=ExtResource("9_kfc8d")]
+position = Vector2(7100.6963, -249.88867)
