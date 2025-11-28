@@ -32,21 +32,23 @@ func bytt():
 	$Player2.position = Vector2(6947, 648)
 	
 	$Player1.scale = Vector2(3,3)
-	$Player2.scale = Vector2(3,3)
+	$Player2.scale = Vector2(0.3,0.3)
 
 func _process(delta: float) -> void:
 	
-	if player1Round == 3:
+	if player1Round == 2:
 		var player = "player1"
 		playwin(player)
+		$win1.show()
 	
-	if player2Round == 3:
+	if player2Round == 2:
 		var player = "player2"
 		playwin(player)
+		$win2.show()
 
 
 func _input(event: InputEvent) -> void:
-	if Input.is_key_pressed(KEY_3):
+	if Input.is_key_pressed(KEY_R):
 		bytt()
 
 func _passer(nameSake, passSake):
@@ -85,7 +87,8 @@ func _passer(nameSake, passSake):
 				player2check2 = true
 				player2check1 = false
 				
-				player2Round =+ 1
+				player2Round = player2Round + 1
 
 func playwin(player):
 	print(player, " vant")
+	

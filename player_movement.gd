@@ -94,6 +94,16 @@ func _physics_process(delta):
 # Apply SPEED_BOOST
 		if current_state == "SPEED_BOOST":
 			speed_multiplier *= boost_multiplier
+			ice_friction *= 0.5
+		if current_state == "SPEED_BOOST_2":
+			speed_multiplier *= 1.5
+			ice_friction *= 1
+		if current_state == "SPEED_BOOST_3":
+			speed_multiplier *= 2
+			ice_friction *= 1.5
+		if current_state == "SPEED_BOOST_4":
+			speed_multiplier *= 3
+			ice_friction *= 2
 
 # Apply other dynamic modifiers (like snowball slow, grip, etc.)
 		if is_in_group("player1"):
@@ -142,10 +152,6 @@ func _physics_process(delta):
 	velocity *= (1.0 - applied_ice_friction)
 
 	
-	if Global.snowball_2 < 16 and current_state == "SNOWBALL" and Input.is_action_just_pressed("shoot"):
-		shoot()
-	elif current_state == "ICE" and Input.is_action_just_pressed("shoot"):
-		ice()
 
 	move_and_slide()
 
