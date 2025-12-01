@@ -1,6 +1,6 @@
 [gd_scene load_steps=27 format=4 uid="uid://cbiu6xk45q6jh"]
 
-[ext_resource type="Script" uid="uid://dxupavlw1bkkd" path="res://kart.gd" id="1_5vti7"]
+[ext_resource type="Script" path="res://kart.gd" id="1_5vti7"]
 [ext_resource type="Texture2D" uid="uid://dylrocadc6dhb" path="res://temp assets/World of Solaria Blacksmith Update 02 DEMO/World of Solaria Blacksmith New Style DEMO.png" id="1_5y1ng"]
 [ext_resource type="Texture2D" uid="uid://d0nlve3cljyxr" path="res://temp assets/winter.png" id="2_o4efj"]
 [ext_resource type="Texture2D" uid="uid://bxjl3p3m6dnuw" path="res://temp assets/Untitled-2 2.png" id="3_fdrv1"]
@@ -15,7 +15,7 @@
 [ext_resource type="Script" uid="uid://c1x5hm13a671o" path="res://scenes_items/area_2d_3.gd" id="7_f7d05"]
 [ext_resource type="Script" uid="uid://crpq6a2h8gwat" path="res://scenes_items/area_2d_5.gd" id="8_i0xxp"]
 [ext_resource type="Script" uid="uid://do33lomovv3ob" path="res://scenes_items/area_2d_6.gd" id="9_4baei"]
-[ext_resource type="PackedScene" uid="uid://chmfywym1vvdj" path="res://check.tscn" id="9_kfc8d"]
+[ext_resource type="PackedScene" path="res://check.tscn" id="9_kfc8d"]
 [ext_resource type="Script" uid="uid://bx4i1i4mpwf17" path="res://scenes_items/area_2d_7.gd" id="10_ag40y"]
 [ext_resource type="Script" uid="uid://dveknevvnhmfk" path="res://scenes_items/area_2d_8.gd" id="11_s8oyv"]
 
@@ -752,6 +752,21 @@ scale = Vector2(33.795, 33.795)
 text = "Player 2 Vant!"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="press r to start race" type="Label" parent="."]
+offset_left = 492.0
+offset_top = 219.0
+offset_right = 647.0
+offset_bottom = 280.0
+text = "press R to start race"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 6500.0005
+offset_top = 589.0
+offset_right = 6524.0005
+offset_bottom = 612.0
+scale = Vector2(10, 10)
+text = "<-"
 
 [connection signal="area_entered" from="spawn_node1" to="spawn_node1" method="_on_area_entered"]
 [connection signal="area_exited" from="spawn_node1" to="spawn_node1" method="_on_area_exited"]
